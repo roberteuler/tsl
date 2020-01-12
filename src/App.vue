@@ -1,56 +1,56 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+  <v-app id="sandbox">
+    <v-navigation-drawer
+      v-model="primaryDrawer.model"
+      :clipped="true"
+      :floating="true"
+      app
+      overflow
+    />
+    <v-app-bar :clipped-left="true" app>
+      <v-app-bar-nav-icon
+        @click.stop="primaryDrawer.model = !primaryDrawer.model"
+      />
+      <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld />
+      <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="10">
+          </v-col>
+        </v-row>
+      </v-container>
     </v-content>
+
+    <v-footer :inset="false" app>
+      <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+//import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld
+    //HelloWorld
   },
-
   data: () => ({
-    //
+    drawers: ["Default (no property)", "Permanent", "Temporary"],
+    primaryDrawer: {
+      model: null,
+      type: "default (no property)",
+      clipped: false,
+      floating: false,
+      mini: false
+    },
+    appTitle: "TSC Ranking",
+    footer: {
+      inset: false
+    }
   })
 };
 </script>
