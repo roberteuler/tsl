@@ -65,3 +65,8 @@ export class GameData {
     this.data = { ...data };
   }
 }
+
+export const sampleData = {
+  test: "",
+  test2: 12
+};
