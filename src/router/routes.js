@@ -20,10 +20,15 @@ const routes = [
     children: [{ path: "", component: () => import("pages/Overview.vue") }]
   },
   {
-    path: "/Game",
+    path: "/NewGame",
     component: () => import("layouts/MyLayout.vue"),
     children: [{ path: "", component: () => import("pages/Game.vue") }]
   },
+  {
+    path: "/Games",
+    component: () => import("layouts/MyLayout.vue"),
+    children: [{ path: "", component: () => import("pages/GameList.vue") }]
+  }
 
 ];
 
