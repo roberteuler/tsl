@@ -1,12 +1,15 @@
 <template>
-  <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
-    <h1>Hallo Spielerübersicht</h1>
+  <q-page class="flex">
+    <div class="q-pa-md">
+      <Statistics></Statistics>
+    </div>
   </q-page>
 </template>
 
 <script>
+import Statistics from "../components/Statistics";
 export default {
-  name: "PageIndex"
+  name: "Overview",
+  components: { Statistics }
 };
 </script>

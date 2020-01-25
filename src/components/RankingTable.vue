@@ -1,15 +1,23 @@
 <template>
   <div class="q-pa-md">
-    <q-table
-      title="Rangliste"
-      :data="playerData"
-      :columns="columns"
-      row-key="id"
-    >
-      <template v-slot:top>
-        <FilterBar @yearSelected="selectedYear = $event"></FilterBar>
-      </template>
-    </q-table>
+    <div class="row">
+      <div class="col">
+        <q-table
+          title="Rangliste"
+          :data="playerData"
+          :columns="columns"
+          class="rankingTable"
+          row-key="id"
+          virtual-scroll
+          :pagination.sync="pagination"
+          :rows-per-page-options="[0]"
+        >
+          <template v-slot:top>
+            <FilterBar @filterSelected="updateFilter($event)"></FilterBar>
+          </template>
+        </q-table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,11 +27,18 @@ import data from "../statics/data.js";
 export default {
   components: { FilterBar },
   created() {
-    this.playerData = data.players;
+    // this.playerData = data.players;
   },
   data() {
     return {
-      selectedYear: "2018",
+      pagination: {
+        rowsPerPage: 0
+      },
+      filterParams: {
+        selectedYear: null,
+        selectedSeason: null,
+        searchTerm: null
+      },
       columns: [
         {
           name: "name",
@@ -39,6 +54,13 @@ export default {
           label: "Jahr",
           align: "center",
           field: "year",
+          sortable: true
+        },
+        {
+          name: "season",
+          label: "Season",
+          align: "center",
+          field: "season",
           sortable: true
         },
         {
@@ -72,12 +94,41 @@ export default {
       ]
     };
   },
+  methods: {
+    updateFilter(filterParams) {
+      this.filterParams = filterParams;
+    }
+  },
   computed: {
     playerData() {
       return data.players.filter(row => {
-        return row.year === this.selectedYear;
+        const year = this.filterParams.selectedYear;
+        const season = this.filterParams.selectedSeason;
+        const searchTerm = this.filterParams.searchTerm;
+        if (year && row.year !== year) {
+          return false;
+        }
+        if (season && row.season !== season) {
+          return false;
+        }
+        if (searchTerm && searchTerm !== "") {
+          let found = false;
+          Object.keys(row).forEach(key => {
+            if (row[key].toString().includes(searchTerm)) {
+              found = true;
+            }
+          });
+          if (!found) {
+            return false;
+          }
+        }
+        return true;
       });
     }
   }
 };
 </script>
+<style lang="scss" scoped>
+.rankingTable {
+}
+</style>

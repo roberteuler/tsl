@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
+import VueMoment from "vue-moment";
 import routes from "./routes";
-
+Vue.use(VueMoment);
 Vue.use(VueRouter);
 
 /*

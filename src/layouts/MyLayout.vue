@@ -3,7 +3,9 @@
     <q-header bordered class="bg-primary text-white">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="left = !left" />
-
+        <q-avatar>
+          <img src="../assets/logo.jpg" />
+        </q-avatar>
         <q-toolbar-title>
           Table Soccer League
         </q-toolbar-title>
@@ -49,17 +51,14 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </q-page-container>
 
     <q-footer bordered class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" />
-          </q-avatar>
-          Title
-        </q-toolbar-title>
+        <q-toolbar-title> </q-toolbar-title>
       </q-toolbar>
     </q-footer>
   </q-layout>
