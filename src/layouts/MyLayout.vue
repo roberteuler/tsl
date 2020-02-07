@@ -6,9 +6,7 @@
         <q-avatar>
           <img src="../assets/logo.jpg" />
         </q-avatar>
-        <q-toolbar-title>
-          Table Soccer League
-        </q-toolbar-title>
+        <q-toolbar-title>Table Soccer League</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -17,7 +15,7 @@
         <q-item-label header>Menü</q-item-label>
         <q-item clickable to="/Overview">
           <q-item-section avatar>
-            <q-icon name="code" />
+            <q-icon name="insert_chart" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Meine Statistik</q-item-label>
@@ -25,26 +23,34 @@
         </q-item>
         <q-item clickable to="/Ranking">
           <q-item-section avatar>
-            <q-icon name="school" />
+            <q-icon name="view_list" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Rangliste</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable to="/NewGame">
+        <q-item clickable to="/Games">
           <q-item-section avatar>
-            <q-icon name="chat" />
+            <q-icon name="sports_soccer" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Spiele</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable to="/Games">
+        <q-item clickable to="/NewGame">
           <q-item-section avatar>
-            <q-icon name="chat" />
+            <q-icon name="note_add" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Spiel eintragen</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable to="/NewPlayer">
+          <q-item-section avatar>
+            <q-icon name="person_add" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Neuer Spieler</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
@@ -58,7 +64,7 @@
 
     <q-footer bordered class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title> </q-toolbar-title>
+        <q-toolbar-title></q-toolbar-title>
       </q-toolbar>
     </q-footer>
   </q-layout>

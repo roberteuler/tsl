@@ -89,9 +89,90 @@ const data = {
       wins: 12,
       looses: 35,
       gameCount: 47
+    },
+    {
+      playerId: 4,
+      firstname: "Ben",
+      lastname: "Frank",
+      maxRating: 1500,
+      year: "2020",
+      season: "1",
+      rating: 1500,
+      rank: 4,
+      goalsScored: 0,
+      goalsTaken: 0,
+      wins: 0,
+      looses: 0,
+      gameCount: 0
     }
   ],
-
-  games: []
+  tableTypes: [
+    {
+      tableId: 0,
+      name: "Leonhart Pro Tournament"
+    },
+    {
+      tableId: 1,
+      name: "Ullrich Home"
+    },
+    {
+      tableId: 2,
+      name: "Ullrich Beast"
+    },
+    {
+      tableId: 3,
+      name: "Ullrich P4P"
+    },
+    {
+      tableId: 4,
+      name: "Lettner Pro Evolution"
+    },
+    {
+      tableId: 5,
+      name: "Bonzini"
+    },
+    {
+      tableId: 6,
+      name: "Tornado"
+    },
+    {
+      tableId: 7,
+      name: "Garlando"
+    },
+    {
+      tableId: 8,
+      name: "Roberto Sport"
+    }
+  ],
+  games: [
+    {
+      gameId: 1,
+      sets: [1, 2, 3],
+      year: "2019",
+      season: "1",
+      tableType: 0,
+      player1Id: 1,
+      player2Id: 2,
+      player3Id: 3,
+      player4Id: 4,
+      winner: 1
+    }
+  ],
+  sets: [
+    {
+      setId: 1,
+      attacker1Id: 1,
+      defender1Id: 2,
+      attacker2Id: 3,
+      defender2Id: 4,
+      pointsTeam1: 5,
+      pointsTeam2: 3,
+      winner: 1,
+      owngoals1: 0,
+      owngoals2: 1,
+      keeperGoals1: 1,
+      keeperGoals2: 1
+    }
+  ]
 };
 export default data;

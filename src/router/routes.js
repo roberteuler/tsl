@@ -28,8 +28,12 @@ const routes = [
     path: "/Games",
     component: () => import("layouts/MyLayout.vue"),
     children: [{ path: "", component: () => import("pages/GameList.vue") }]
+  },
+  {
+    path: "/NewPlayer",
+    component: () => import("layouts/MyLayout.vue"),
+    children: [{ path: "", component: () => import("pages/NewPlayer.vue") }]
   }
-
 ];
 
 // Always leave this as last one

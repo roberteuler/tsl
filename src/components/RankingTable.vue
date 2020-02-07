@@ -1,22 +1,23 @@
 <template>
   <div class="q-pa-md">
+    <q-table
+      title="Rangliste"
+      :grid="mobileScreen"
+      :dense="!mobileScreen"
+      :data="playerData"
+      :columns="columns"
+      class="rankingTable"
+      row-key="id"
+      virtual-scroll
+      :pagination.sync="pagination"
+      :rows-per-page-options="[0]"
+    >
+      <template v-slot:top>
+        <FilterBar @filterSelected="updateFilter($event)"></FilterBar>
+      </template>
+    </q-table>
     <div class="row">
-      <div class="col">
-        <q-table
-          title="Rangliste"
-          :data="playerData"
-          :columns="columns"
-          class="rankingTable"
-          row-key="id"
-          virtual-scroll
-          :pagination.sync="pagination"
-          :rows-per-page-options="[0]"
-        >
-          <template v-slot:top>
-            <FilterBar @filterSelected="updateFilter($event)"></FilterBar>
-          </template>
-        </q-table>
-      </div>
+      <div class="col col-md-12 col-xs-12"></div>
     </div>
   </div>
 </template>
@@ -24,8 +25,10 @@
 <script>
 import FilterBar from "../components/FilterBar";
 import data from "../statics/data.js";
+import responsiveHandlerMixin from "../mixins/responsiveHandlerMixin";
 export default {
   components: { FilterBar },
+  mixins: [responsiveHandlerMixin],
   created() {
     // this.playerData = data.players;
   },
@@ -130,5 +133,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .rankingTable {
+  width: 100%;
 }
 </style>
